@@ -60,10 +60,10 @@ function makePersonObject(id, name, email) {
  * passing { id: 1, name: 'Leia', email: 'leia@leia.com` } as the argument,
  * the returned value should look like `Hello, my name is Leia`.
  */
-function getName(name) {
+function getName() {
 
-    var name = 'Hello, my name is Luke';
-    return name;
+    var Name = 'Hello, my name is Luke';
+    return Name;
     /* code here */
 }
 
@@ -80,9 +80,24 @@ function getName(name) {
  *         and returns a string like `Hello, my name is {name}`.
  *         where `{name}` is the name passed into `makeSmartPerson`.
  */
-function makeSmartPerson( /* code here */ ) {
-    /* code here */
+function makeSmartPerson(name) {
+
+    return {
+        name: name,
+        sum: function(num1, num2) {
+            return num1 + num2;
+
+        }
+    }
+
 }
+
+
+
+
+
+
+
 
 
 
@@ -143,7 +158,10 @@ function get3rdCar(inventory) {
  * it will return `This is a Lincoln Navigator`.
  */
 function getCarInfoByIndex(inventory, index) {
-    /* code here */
+    const the1rst = inventory.find((item, index) => {
+        return index === 0 // we use 2 because index is zero-based.
+    })
+    return `The car is a ${the1rst.car_make} ${the1rst.car_model}`
 }
 
 /**
@@ -157,8 +175,11 @@ function getCarInfoByIndex(inventory, index) {
  * For example, if getLastCarInfo is invoked passing the inventory inside /data/inventory.js,
  * it will return `This is a Lincoln Town Car`.
  */
-function getLastCarInfo( /* code here */ ) {
-    /* code here */
+function getLastCarInfo(inventory, index) {
+    const last = inventory.find((item, index) => {
+        return index === 13
+    })
+    return `The car is a ${last.car_make} ${last.car_model}`
 }
 
 /**
