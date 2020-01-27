@@ -62,8 +62,8 @@ function makePersonObject(id, name, email) {
  */
 function getName() {
 
-    var Name = 'Hello, my name is Luke';
-    return Name;
+    var Name = `Luke`;
+    return `hello, my name is ${Name}`;
     /* code here */
 }
 
@@ -86,11 +86,18 @@ function makeSmartPerson(name) {
         name: name,
         sum: function(num1, num2) {
             return num1 + num2;
-
+            name.speak = () => {
+                var name = `Sam`;
+                return `${name}`
+            }
         }
+
     }
 
 }
+
+
+
 
 
 
@@ -175,12 +182,19 @@ function getCarInfoByIndex(inventory, index) {
  * For example, if getLastCarInfo is invoked passing the inventory inside /data/inventory.js,
  * it will return `This is a Lincoln Town Car`.
  */
-function getLastCarInfo(inventory, index) {
-    const last = inventory.find((item, index) => {
-        return index === 13
-    })
-    return `The car is a ${last.car_make} ${last.car_model}`
+function getLastCarInfo(inven) {
+    //   /* code here */
+    for (let i = 0; i < inven.length; i++) {
+        if (inven[i].id == inven.length) {
+            let car = inven[i];
+            return `This is a ${car.car_make} ${car.car_model}`
+        }
+    }
+
 }
+
+
+
 
 /**
  * ### Challenge `getCarInfoById`
