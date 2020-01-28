@@ -60,10 +60,8 @@ function makePersonObject(id, name, email) {
  * passing { id: 1, name: 'Leia', email: 'leia@leia.com` } as the argument,
  * the returned value should look like `Hello, my name is Leia`.
  */
-function getName() {
-
-    var Name = `Luke`;
-    return `hello, my name is ${Name}`;
+function getName(aPerson) {
+    return `hello, my name is ${aPerson.name}`;
     /* code here */
 }
 
@@ -80,16 +78,15 @@ function getName() {
  *         and returns a string like `Hello, my name is {name}`.
  *         where `{name}` is the name passed into `makeSmartPerson`.
  */
-function makeSmartPerson(name) {
-
+function makeSmartPerson(aName) {
     return {
-        name: name,
-        sum: function(num1, num2) {
-            return num1 + num2;
+        name: aName,
+        sum: function(a, b) {
+            return a + b;
         },
         speak: function() {
-            var Name = `Sam`;
-            return ` Hello, my name is ${Name}`;
+
+            return ` Hello, my name is ${aName}`;
         }
     }
 
@@ -236,11 +233,7 @@ function sortCarInventory(inven) {
  * getModelYears returns an array containing all the 'car_year's in the inventory.
  */
 function getModelYears(inven) {
-    var year = inven.push();
-    for (let i = 0; i < inven.length; i++) {
-        year[i] = [inven.car_year];
-        return year;
-    }
+
 }
 /**
  * ### Challenge `getOlderCars`
