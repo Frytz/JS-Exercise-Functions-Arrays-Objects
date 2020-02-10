@@ -47,6 +47,7 @@ function makePersonObject(iD, aName, eMail) {
     };
 }
 
+
 /**
  * ### Challenge `getName`
  * 
@@ -66,6 +67,7 @@ function getName(aPerson) {
     return `hello, my name is ${aPerson.name}`;
 
 }
+
 
 /**
  * ### Challenge `makeSmartPerson`
@@ -140,6 +142,7 @@ var inventory = [
  * NOTE: This example has been completed for you.
  **/
 function get3rdCar(inventory) {
+    console.log(inventory)
     const the3rd = inventory.find((item, index) => {
         return index === 2 // we use 2 because index is zero-based.
     })
@@ -164,8 +167,11 @@ function get3rdCar(inventory) {
  * it will return `This is a Lincoln Navigator`.
  */
 function getCarInfoByIndex(inVen, nuM) {
+    
     const car = inVen[nuM];
+    //console.log(car)
     return `This is a ${car.car_make} ${car.car_model}`;
+
 }
 
 /**
@@ -180,13 +186,14 @@ function getCarInfoByIndex(inVen, nuM) {
  * it will return `This is a Lincoln Town Car`.
  */
 function getLastCarInfo(inven) {
+    //console.log(inven.length)
     for (let i = 0; i < inven.length; i++) {
         if (inven[i].id == inven.length) {
             let car = inven[i];
+            //console.log(car)
             return `This is a ${car.car_make} ${car.car_model}`
         }
     }
-
 }
 
 
@@ -205,10 +212,12 @@ function getLastCarInfo(inven) {
  * it will return `This is a Lincoln Navigator`.
  */
 function getCarInfoById(inven, idNum) {
+    //console.log(idNum)
     let car = inven;
     for (let i = 0; i < inven.length; i++) {
         if (inven[i].id === idNum) {
             car = inven[i]
+        //console.log(car)
         }
     }
     return `This is a ${car.car_make} ${car.car_model}`
@@ -223,8 +232,8 @@ function getCarInfoById(inven, idNum) {
  * sortCarInventory returns an inventory that is sorted by car_model, ascending [A-Z].
  */
 function sortCarInventory(inven) {
-    return inven.sort((car1, car2) => (car1.car_model > car2.car_model) ? 1 : -1);
-}
+   return inven.sort((invenA, invenB) => (invenA.car_model > invenB.car_model)? 1: -1);  
+}// ? value1: value2 creates an if (matches) else (do this)
 
 /**
  * ### Challenge `getModelYears`
@@ -235,10 +244,10 @@ function sortCarInventory(inven) {
  *     (1) an array which is an inventory of cars like the one inside /data/inventory.js.
  * getModelYears returns an array containing all the 'car_year's in the inventory.
  */
-function getModelYears(yearS) {
+function getModelYears(carYear) {
     const yearsArray = [];
-    for (let i = 0; i < yearS.length; i++) {
-        let currentCarYear = yearS[i].car_year;
+    for (let i = 0; i < carYear.length; i++) {
+        let currentCarYear = carYear[i].car_year;
         yearsArray.push(currentCarYear);
     }
     return yearsArray;
@@ -256,12 +265,14 @@ function getModelYears(yearS) {
  * in the same order as they appear in the original inventory.
  */
 function getOlderCars(inventory, maxYear) {
+    //console.log(maxYear)
     let result = []
     for (let i = 0; i < inventory.length; i++) {
         if (inventory[i].car_year <= maxYear) {
             result.push(inventory[i])
         }
     }
+    //console.log (result)
     return result
 }
 
@@ -284,6 +295,7 @@ function getGermanCars(inventory) {
             result.push(inventory[i])
         }
     }
+    //console.log(result)
     return result
 }
 
@@ -306,8 +318,8 @@ function getGermanCars(inventory) {
  * }
  */
 const sum = (a, b) => a + b;
-const addFive = a => a + 5;
-const argTimesTwo = a => a * 2;
+const addFive = (a) => a + 5;
+const argTimesTwo = (a) => a * 2;
 
 /**
  * ### Challenge `carMaker`
@@ -327,6 +339,8 @@ function carMaker(odometer) {
         odometer,
         drive(distance) {
             this.odometer += distance
+            //console.log(odometer)
+            //console.log(distance)
             return this.odometer
         }
     }
