@@ -13,6 +13,7 @@
  * NOTE: This example has been completed for you.
  */
 function addNumbers(a, b) {
+    
     return a + b;
 }
 
@@ -82,32 +83,25 @@ function getName(aPerson) {
  *         and returns a string like `Hello, my name is {name}`.
  *         where `{name}` is the name passed into `makeSmartPerson`.
  */
-function makeSmartPerson(aName) {
+//                       arugement
+ function makeSmartPerson(aName) {
 
-    return {
-        name: aName,
-        sum: function(a, b) {
-            return a + b;
-        },
-        speak: function() {
+     return {
+    //     // propery:arguement
+         name: aName,
+    //   //method        
+        sum: (a, b) => a + b, 
+    //     sum: function(a, b) {
+    //         return a + b;
+        speak: () => `Hello, my name is ${aName}`
+    //     },
+    //     speak: function() {
 
-            return ` Hello, my name is ${aName}`;
-        }
-    }
+    //         return ` Hello, my name is ${aName}`;
+    //     }
+     }
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -141,7 +135,7 @@ var inventory = [
  *
  * NOTE: This example has been completed for you.
  **/
-function get3rdCar(inventory) {
+ function get3rdCar(inventory) {
     console.log(inventory)
     const the3rd = inventory.find((item, index) => {
         return index === 2 // we use 2 because index is zero-based.
@@ -165,10 +159,10 @@ function get3rdCar(inventory) {
  * 
  * For example, if getCarInfoByIndex is invoked with the inventory and the number 0,
  * it will return `This is a Lincoln Navigator`.
- */
-function getCarInfoByIndex(inVen, nuM) {
-    
-    const car = inVen[nuM];
+ */                 // arguement array/index id
+function getCarInfoByIndex(inventory, id) {
+    // car var defined with the car and id in the arguements
+    const car = inventory[id];
     //console.log(car)
     return `This is a ${car.car_make} ${car.car_model}`;
 
@@ -187,8 +181,10 @@ function getCarInfoByIndex(inVen, nuM) {
  */
 function getLastCarInfo(inven) {
     //console.log(inven.length)
-    for (let i = 0; i < inven.length; i++) {
-        if (inven[i].id == inven.length) {
+   //  delclare var | conditional | increment = i +1
+//         index starts at zero | length is 50| 
+   for (let i = 0; i < inven.length; i++) {
+    if (inven[i].id == inven.length) {
             let car = inven[i];
             //console.log(car)
             return `This is a ${car.car_make} ${car.car_model}`
@@ -215,6 +211,7 @@ function getCarInfoById(inven, idNum) {
     //console.log(idNum)
     let car = inven;
     for (let i = 0; i < inven.length; i++) {
+        // when i equals idNum condition if fullfiiled
         if (inven[i].id === idNum) {
             car = inven[i]
         //console.log(car)
@@ -232,9 +229,19 @@ function getCarInfoById(inven, idNum) {
  * sortCarInventory returns an inventory that is sorted by car_model, ascending [A-Z].
  */
 function sortCarInventory(inven) {
-   return inven.sort((invenA, invenB) => (invenA.car_model > invenB.car_model)? 1: -1);  
-}// ? value1: value2 creates an if (matches) else (do this)
+//    return inven.sort (function (a , b) {
+//        var invenA = a.car_model;
+//        var invenB = b.car_model;
 
+//        if ( invenA < invenB) {return -1;}
+//     else if (invenA > invenB) {
+//         return 1;}
+//         else {return 0}
+//            });
+
+    return inven.sort((invenA, invenB) => (invenA.car_model > invenB.car_model)? 1: -1); 
+// ? value1: value2 creates an if (matches) else (do this)
+}
 /**
  * ### Challenge `getModelYears`
  * 
@@ -267,9 +274,11 @@ function getModelYears(carYear) {
 function getOlderCars(inventory, maxYear) {
     //console.log(maxYear)
     let result = []
+    //new array for indexing car years
     for (let i = 0; i < inventory.length; i++) {
         if (inventory[i].car_year <= maxYear) {
             result.push(inventory[i])
+        //pushes the result for each conditional until the year reaches maxYear
         }
     }
     //console.log (result)
@@ -293,6 +302,7 @@ function getGermanCars(inventory) {
     for (let i = 0; i < inventory.length; i++) {
         if (makes.includes(inventory[i].car_make)) {
             result.push(inventory[i])
+        // pushes all results that matches the strings in var makes
         }
     }
     //console.log(result)
